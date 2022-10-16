@@ -15,6 +15,8 @@
         pkgs = nixpkgs.legacyPackages.${system};
       in rec {
         packages.oscam = pkgs.callPackage ./oscam/default.nix {};
+        packages.libdvbcsa-patched = pkgs.callPackage ./libdvbcsa-patched/default.nix {};
+        packages.tvheadend-patched = pkgs.callPackage ./tvheadend-patched/default.nix {libdvbcsa-patched = packages.libdvbcsa-patched;};
       }
     );
 }
