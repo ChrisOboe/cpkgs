@@ -1,0 +1,21 @@
+{ lib, fetchPypi, buildPythonPackage, requests, colorama, mutagen}:
+
+buildPythonPackage rec {
+  pname = "aigpy";
+  version = "2021.9.10.3";
+
+  src = fetchPypi {
+    inherit pname version;
+    sha256 = "Yhxv/NCxR7iO/9WcnFLqlLAz4T4JRDOdJwFqoxQfyP10=";
+  };
+
+  doCheck = false;
+
+  meta = with lib; {
+    homepage = "https://github.com/AIGMix/AIGPY";
+    description = "Python Common Tool";
+    platforms = platforms.linux;
+    maintainers = [ "chris@oboe.email" ];
+  };
+}
+
