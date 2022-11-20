@@ -29,6 +29,7 @@
         packages.chicago95 = pkgs.callPackage ./chicago95/default.nix {};
         packages.se98 = pkgs.callPackage ./se98/default.nix {};
         packages.redmond97 = pkgs.callPackage ./redmond97/default.nix {};
+        packages.bulk_extractor = pkgs.callPackage ./bulk_extractor/default.nix {};
       }
     );
 }
