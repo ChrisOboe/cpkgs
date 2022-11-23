@@ -32,6 +32,7 @@
         packages.bulk_extractor = pkgs.callPackage ./bulk_extractor/default.nix {};
         packages.bulk_extractor2 = pkgs.callPackage ./bulk_extractor2/default.nix {};
         packages.xmount = pkgs.callPackage ./xmount/default.nix {};
+        packages.ha-mqtt-iot = pkgs.callPackage ./ha-mqtt-iot/default.nix {};
       }
     );
 }
