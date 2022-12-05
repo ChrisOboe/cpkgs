@@ -35,6 +35,9 @@
         packages.vlmcsd = pkgs.callPackage ./vlmcsd/default.nix {};
         packages.xmount = pkgs.callPackage ./xmount/default.nix {};
         packages.aperture-plymouth = pkgs.callPackage ./aperture-plymouth/default.nix {};
+        packages.ha-mqtt-iot = pkgs.callPackage ./ha-mqtt-iot/default.nix {};
+        packages.tidalapi = pkgs.python3Packages.callPackage ./tidalapi/default.nix {};
+        packages.mopidy-tidal = pkgs.python3Packages.callPackage ./mopidy-tidal/default.nix {tidalapi = packages.tidalapi;};
       }
     );
 }
