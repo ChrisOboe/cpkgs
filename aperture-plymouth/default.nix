@@ -12,7 +12,7 @@ stdenv.mkDerivation rec {
     owner = "irth";
     repo = "plymouth-theme-aperture";
     rev = "edab46ca3b1f2f509958c9a9525888b3ac95fd61";
-    sha256 = "";
+    sha256 = "sha256-QpaLTMR6cOKo9cD48djowUV+7dgGtqrF0+ZoQGpKifw=";
   };
 
   installPhase = ''
