@@ -15,12 +15,9 @@ stdenv.mkDerivation rec {
     sha256 = "sha256-QpaLTMR6cOKo9cD48djowUV+7dgGtqrF0+ZoQGpKifw=";
   };
 
-  patchPhase = ''
-    substituteInPlace aperture.plymouth --replace '/usr/share' '/etc'
-  '';
-
   installPhase = ''
     runHook preInstall
+    sed -i "s,/usr,$out,g" aperture.plymouth
     mkdir -p $out/share/plymouth/themes/aperture
     mv * $out/share/plymouth/themes/aperture
     runHook postInstall
