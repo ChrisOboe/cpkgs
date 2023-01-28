@@ -1,13 +1,12 @@
 {
   avahi,
   bzip2,
-  cmake,
   dbus,
+  dtv-scan-tables,
   fetchFromGitHub,
   fetchpatch,
-  ffmpeg_4,
+  ffmpeg,
   gettext,
-  git,
   gnutar,
   gzip,
   lib,
@@ -19,8 +18,9 @@
   makeWrapper,
   openssl,
   pkg-config,
-  python2,
+  python3,
   stdenv,
+  uriparser,
   v4l-utils,
   which,
   x264,
@@ -61,10 +61,8 @@ in
       avahi
       bzip2
       dbus
-      ffmpeg_4
+      ffmpeg
       gettext
-      git
-      gnutar
       gzip
       libdvbcsa-patched
       libiconv
@@ -72,14 +70,18 @@ in
       libva
       libvpx
       openssl
-      python2
-      which
+      uriparser
       x264
       x265
       zlib
     ];
 
-    nativeBuildInputs = [cmake makeWrapper pkg-config];
+    nativeBuildInputs = [
+      makeWrapper
+      pkg-config
+      python3
+      which
+    ];
 
     NIX_CFLAGS_COMPILE = ["-Wno-error=format-truncation" "-Wno-error=stringop-truncation"];
 
@@ -92,6 +94,13 @@ in
       "--disable-ffmpeg_static"
       "--disable-hdhomerun_client"
       "--disable-hdhomerun_static"
+      "--disable-libx264_static"
+      "--disable-libx265_static"
+      "--disable-libvpx_static"
+      "--disable-libtheora_static"
+      "--disable-libvorbis_static"
+      "--disable-libfdkaac_static"
+      "--disable-libmfx_static"
       "--enable-vaapi"
     ];
 
