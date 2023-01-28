@@ -2,6 +2,7 @@
   lib,
   fetchgit,
   stdenv,
+  libewf,
   cmake,
   fuse,
 }:
@@ -23,6 +24,7 @@ stdenv.mkDerivation rec {
 
   buildInputs = [
     fuse
+    libewf
   ];
 
   meta = with lib; {
