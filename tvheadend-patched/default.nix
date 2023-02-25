@@ -49,8 +49,8 @@ in
     src = fetchFromGitHub {
       owner = "tvheadend";
       repo = "tvheadend";
-      rev = "3edbd57246129c99b079cfd6269688430591e0d1";
-      sha256 = "sha256-hr25kUKtLQRje4RJjkLY3GGXqO/4erA+wdy4RvpqbqQ=";
+      rev = "d1366a0669c785141a128678a671c008abd1fb5a";
+      sha256 = "sha256-jTrm5RxKAKvNTnMsWbHCUxOaNMWxjOzJqkyHR0JQWxQ=";
     };
 
     patches = [
