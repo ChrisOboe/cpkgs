@@ -5,7 +5,7 @@
   dtv-scan-tables,
   fetchFromGitHub,
   fetchpatch,
-  ffmpeg,
+  ffmpeg_4,
   gettext,
   gnutar,
   gzip,
@@ -25,6 +25,7 @@
   which,
   x264,
   x265,
+  libtheora,
   zlib,
 }: let
   version = "4.3.0";
@@ -57,17 +58,19 @@ in
       ./tvheadend43.patch
     ];
 
+
     buildInputs = [
       avahi
       bzip2
       dbus
-      ffmpeg
+      ffmpeg_4
       gettext
       gzip
       libdvbcsa-patched
       libiconv
       libopus
       libva
+      libtheora
       libvpx
       openssl
       uriparser
@@ -83,7 +86,7 @@ in
       which
     ];
 
-    NIX_CFLAGS_COMPILE = ["-Wno-error=format-truncation" "-Wno-error=stringop-truncation"];
+    NIX_CFLAGS_COMPILE = ["-Wno-error"];
 
     # disable dvbscan, as having it enabled causes a network download which
     # cannot happen during build.  We now include the dtv-scan-tables ourselves
