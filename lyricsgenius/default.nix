@@ -41,7 +41,7 @@ buildPythonPackage rec {
 
   meta = with lib; {
     description = "Download lyrics and metadata from Genius.com";
-    homepage = https://github.com/johnwmillr/lyricsgenius;
+    homepage = "https://github.com/johnwmillr/lyricsgenius";
     license = licenses.mit;
     maintainers = ["chris@oboe.email"];
   };
