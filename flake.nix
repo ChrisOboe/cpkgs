@@ -20,6 +20,7 @@
         packages.bulk_extractor = pkgs.callPackage ./bulk_extractor/default.nix {};
         packages.chicago95 = pkgs.callPackage ./chicago95/default.nix {};
         packages.ha-mqtt-iot = pkgs.callPackage ./ha-mqtt-iot/default.nix {};
+        packages.mopidyapi = pkgs.python3Packages.callPackage ./mopidyapi/default.nix {};
         packages.hyperion-ng-chris = pkgs.libsForQt5.callPackage ./hyperion-ng/default.nix {};
         packages.libdvbcsa-patched = pkgs.callPackage ./libdvbcsa-patched/default.nix {};
         packages.lyricsgenius = pkgs.python3Packages.callPackage ./lyricsgenius/default.nix {};

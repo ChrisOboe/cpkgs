@@ -1,0 +1,26 @@
+name: update-flake-lock
+on:
+  workflow_dispatch: # allows manual triggering
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: cachix/install-nix-action@v19
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+      - run: nix flake update
+      - uses: peter-evans/create-pull-request@v4
+        id: pr
+        with:
+          commit-message: Update flake.lock
+          title: Update flake.lock
+      - name: Enable Pull Request Automerge
+        if: steps.pr.outputs.pull-request-operation == 'created'
+        uses: peter-evans/enable-pull-request-automerge@v2
+        with:
+          token: ${{ secrets.PAT }}
+          pull-request-number: ${{ steps.pr.outputs.pull-request-number }}
