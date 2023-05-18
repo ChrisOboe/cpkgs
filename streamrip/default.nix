@@ -38,7 +38,8 @@ buildPythonPackage rec {
       --replace 'cleo = {version = "1.0.0a4", allow-prereleases = true}' 'cleo = "*"' \
       --replace 'deezer-py = "1.3.6"' 'deezer-py = "^1.3.6"' \
       --replace 'tomlkit = "^0.7.2"' 'tomlkit = "^0"' \
-      --replace 'aiofiles = "^0.7.0"' 'aiofiles = "*"'
+      --replace 'aiofiles = "^0.7.0"' 'aiofiles = "*"' \
+      --replace 'm3u8 = "^0.9.0"' 'm3u8 = "*"'
   '';
 
   propagatedBuildInputs = [
