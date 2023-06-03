@@ -24,6 +24,7 @@
         packages.hyperion-ng-chris = pkgs.libsForQt5.callPackage ./hyperion-ng/default.nix {};
         packages.libdvbcsa-patched = pkgs.callPackage ./libdvbcsa-patched/default.nix {};
         packages.lyricsgenius = pkgs.python3Packages.callPackage ./lyricsgenius/default.nix {};
+        packages.libdyson = pkgs.python3Packages.callPackage ./libdyson/default.nix {};
         packages.simple-term-menu = pkgs.python3Packages.callPackage ./simple-term-menu/default.nix {};
         packages.mopidy-tidal = pkgs.python3Packages.callPackage ./mopidy-tidal/default.nix {inherit (packages) tidalapi;};
         packages.streamrip = pkgs.python3Packages.callPackage ./streamrip/default.nix {inherit (packages) simple-term-menu;};
