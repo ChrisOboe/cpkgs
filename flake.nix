@@ -23,6 +23,7 @@
         packages.mopidyapi = pkgs.python3Packages.callPackage ./mopidyapi/default.nix {};
         packages.hyperion-ng-chris = pkgs.libsForQt5.callPackage ./hyperion-ng/default.nix {};
         packages.libdvbcsa-patched = pkgs.callPackage ./libdvbcsa-patched/default.nix {};
+        packages.lycheeslicer = pkgs.callPackage ./lycheeslicer/default.nix {};
         packages.lyricsgenius = pkgs.python3Packages.callPackage ./lyricsgenius/default.nix {};
         packages.libdyson = pkgs.python3Packages.callPackage ./libdyson/default.nix {};
         packages.simple-term-menu = pkgs.python3Packages.callPackage ./simple-term-menu/default.nix {};
