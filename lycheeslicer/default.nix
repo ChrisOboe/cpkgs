@@ -38,7 +38,6 @@ in
     meta = with lib; {
       description = "Lychee Slicer for SLA/Resin 3D Printers";
       homepage = "https://lychee.mango3d.io";
-      license = licenses.unfree;
       platforms = platforms.linux;
     };
   }
