@@ -86,6 +86,10 @@ mkDerivation rec {
     "-DENABLE_CEC=OFF"
   ];
 
+  installPhase = ''
+    ninja install
+  '';
+
   meta = with lib; {
     homepage = "https://github.com/hyperion-project/hyperion.ng";
     description = "An opensource Bias or Ambient Lightning implementation";
