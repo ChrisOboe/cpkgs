@@ -25,6 +25,10 @@ buildPythonPackage rec {
     attrs
   ];
 
+  pythonImportCheck = [
+    "libdyson"
+  ];
+
   meta = with lib; {
     description = "Python library for Dyson devices";
     homepage = "https://github.com/shenxn/libdyson";

@@ -30,7 +30,6 @@ stdenv.mkDerivation rec {
     description = "Chicago95 theme";
     homepage = "https://github.com/grassmunk/Chicago95";
     license = licenses.gpl3;
-    platforms = platforms.linux;
     maintainers = ["chris@oboe.email"];
   };
 }

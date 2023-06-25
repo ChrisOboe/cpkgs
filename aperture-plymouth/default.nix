@@ -27,7 +27,6 @@ stdenv.mkDerivation rec {
     description = "Aperture plymouth theme";
     homepage = "https://github.com/irth/plymouth-theme-aperture";
     license = licenses.gpl2;
-    platforms = platforms.linux;
     maintainers = ["chris@oboe.email"];
   };
 }

@@ -34,7 +34,6 @@ stdenv.mkDerivation rec {
   meta = with lib; {
     homepage = "https://github.com/simsong/bulk_extractor/";
     description = "extracting tool";
-    platforms = platforms.linux;
     maintainers = ["chris@oboe.email"];
   };
 }

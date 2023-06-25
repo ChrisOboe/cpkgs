@@ -93,7 +93,6 @@ mkDerivation rec {
   meta = with lib; {
     homepage = "https://github.com/hyperion-project/hyperion.ng";
     description = "An opensource Bias or Ambient Lightning implementation";
-    platforms = platforms.linux;
     maintainers = ["chris@oboe.email"];
   };
 }

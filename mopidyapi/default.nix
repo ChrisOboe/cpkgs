@@ -1,11 +1,11 @@
-{ lib
-, buildPythonPackage
-, fetchPypi
-, flit
-, requests
-, websockets
+{
+  lib,
+  buildPythonPackage,
+  fetchPypi,
+  flit,
+  requests,
+  websockets,
 }:
-
 buildPythonPackage rec {
   pname = "mopidyapi";
   version = "1.1.0";
@@ -16,10 +16,14 @@ buildPythonPackage rec {
     hash = "sha256-n1BJGHFZvuGSSumEXWIjH/CiHs5w/8skhz7yfR7Jplw=";
   };
 
-  buildInputs = [
+  propagatedBuildInputs = [
     requests
     websockets
     flit
+  ];
+
+  pythonImportsCheck = [
+    "mopidyapi"
   ];
 
   meta = with lib; {
@@ -28,5 +32,4 @@ buildPythonPackage rec {
     license = licenses.gpl3;
     maintainers = ["chris@oboe.email"];
   };
-
 }

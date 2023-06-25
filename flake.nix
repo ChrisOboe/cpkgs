@@ -27,7 +27,7 @@
         packages.lycheeslicer = pkgs.callPackage ./lycheeslicer/default.nix {};
         packages.lyricsgenius = pkgs.python3Packages.callPackage ./lyricsgenius/default.nix {};
         packages.libdyson = pkgs.python3Packages.callPackage ./libdyson/default.nix {};
-        packages.simple-term-menu = pkgs.python3Packages.callPackage ./simple-term-menu/default.nix {};
+        packages.simple-term-menu = pkgs.callPackage ./simple-term-menu/default.nix {};
         packages.mopidy-tidal = pkgs.python3Packages.callPackage ./mopidy-tidal/default.nix {inherit (packages) tidalapi;};
         packages.streamrip = pkgs.python3Packages.callPackage ./streamrip/default.nix {inherit (packages) simple-term-menu;};
         packages.oscam = pkgs.callPackage ./oscam/default.nix {};
@@ -35,7 +35,7 @@
         packages.redmond97 = pkgs.callPackage ./redmond97/default.nix {};
         packages.rkvm = pkgs.callPackage ./rkvm/default.nix {};
         packages.se98 = pkgs.callPackage ./se98/default.nix {};
-        packages.tdl = pkgs.callPackage ./tdl/default.nix {};
+        packages.tdl = pkgs.python3Packages.callPackage ./tdl/default.nix {};
         packages.tidal-dl = pkgs.python3Packages.callPackage ./tidal-dl/default.nix {
           inherit (packages) aigpy;
           inherit (packages) lyricsgenius;

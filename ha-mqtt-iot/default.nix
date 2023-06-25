@@ -21,9 +21,5 @@ buildGoModule rec {
     description = " A simple configurable MQTT client that allows actions to be taken or values be reported from a PC ";
     homepage = "https://github.com/W-Floyd/ha-mqtt-iot";
     maintainers = ["chris@oboe.email"];
-    platforms = lib.platforms.linux;
   };
-
-  postInstall = ''
-  '';
 }
