@@ -27,7 +27,6 @@
         packages.simple-term-menu = pkgs.python3Packages.callPackage ./simple-term-menu/default.nix {};
         packages.streamrip = pkgs.python3Packages.callPackage ./streamrip/default.nix {inherit (packages) simple-term-menu;};
         packages.oscam = pkgs.callPackage ./oscam/default.nix {};
-        packages.qt-creator = pkgs.libsForQt5.callPackage ./qt-creator/default.nix {};
         packages.redmond97 = pkgs.callPackage ./redmond97/default.nix {};
         packages.rkvm = pkgs.callPackage ./rkvm/default.nix {};
         packages.se98 = pkgs.callPackage ./se98/default.nix {};
