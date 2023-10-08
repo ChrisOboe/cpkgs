@@ -4,7 +4,7 @@
   cmake,
   stdenv,
   ninja,
-  pkgconfig,
+  pkg-config,
   qt6, # base serialport
   shared-mime-info,
   pipewire, # lib
@@ -26,7 +26,7 @@ stdenv.mkDerivation rec {
   nativeBuildInputs = [
     cmake
     ninja
-    pkgconfig
+    pkg-config
     qt6.wrapQtAppsHook
   ];
 
