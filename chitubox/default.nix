@@ -69,7 +69,9 @@ stdenv.mkDerivation rec {
     homepage = "https://www.chitubox.com";
     description = "SLA/DLP/LCD 3D printing slicer";
     platforms = platforms.linux;
-    license = licenses.unfreeRedistributable;
+    # it's unfree, but flakes somewhat seem to ignore allowUnfree setting.
+    # so unless flakes honor this seeting i outcommented the license
+    #license = licenses.unfreeRedistributable;
     maintainers = ["chris@oboe.email"];
   };
 }
