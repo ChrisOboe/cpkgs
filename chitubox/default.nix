@@ -1,13 +1,16 @@
 {
   autoPatchelfHook,
   fetchurl,
+  makeWrapper,
   fontconfig,
   glib,
   gnutar,
   lib,
   libdrm,
   libGL,
+  cacert,
   libgpgerror,
+  openssl_1_1,
   stdenv,
   xorg,
   zlib,
@@ -31,6 +34,7 @@ stdenv.mkDerivation rec {
 
   nativeBuildInputs = [
     gnutar
+    makeWrapper
     autoPatchelfHook
   ];
 
@@ -43,6 +47,7 @@ stdenv.mkDerivation rec {
     stdenv.cc.cc.lib
     xorg.libX11
     zlib
+    openssl_1_1
     libpulseaudio
     libxkbcommon
     alsa-lib
@@ -52,6 +57,7 @@ stdenv.mkDerivation rec {
     xorg.xcbutilimage
     xorg.xcbutilwm
     gst_all_1.gst-plugins-base
+    cacert
   ];
 
   dontConfigure = true;
@@ -62,7 +68,11 @@ stdenv.mkDerivation rec {
     #rm -rf $out/lib
     #rm -rf $out/plugins
     mkdir -p $out/bin
-    ln -s $out/CHITUBOX $out/bin/chitubox
+    # chitubox has no wayland plugin for its qt.
+    makeWrapper $out/CHITUBOX $out/bin/chitubox \
+     --set QT_QPA_PLATFORM xcb \
+     --set LD_LIBRARY_PATH "${openssl_1_1.out}/lib" \
+     --set SSL_CERT_FILE "${cacert}/etc/ssl/certs/ca-bundle.crt"
   '';
 
   meta = with lib; {
