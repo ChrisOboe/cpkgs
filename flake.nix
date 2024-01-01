@@ -34,6 +34,7 @@
           rkvm = pkgs.callPackage ./rkvm/default.nix {};
           se98 = pkgs.callPackage ./se98/default.nix {};
           switch-firmware = pkgs.callPackage ./switch-firmware/default.nix {};
+          switch-keys = pkgs.callPackage ./switch-keys/default.nix {};
           tidal-dl = pkgs.python3Packages.callPackage ./tidal-dl/default.nix {
             inherit aigpy;
             inherit lyricsgenius;
