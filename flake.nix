@@ -28,10 +28,12 @@
           libdyson = pkgs.python311Packages.callPackage ./libdyson/default.nix {};
           simple-term-menu = pkgs.python3Packages.callPackage ./simple-term-menu/default.nix {};
           streamrip = pkgs.python3Packages.callPackage ./streamrip/default.nix {inherit simple-term-menu;};
+          steamgrid = pkgs.callPackage ./steamgrid/default.nix {};
           oscam = pkgs.callPackage ./oscam/default.nix {};
           redmond97 = pkgs.callPackage ./redmond97/default.nix {};
           rkvm = pkgs.callPackage ./rkvm/default.nix {};
           se98 = pkgs.callPackage ./se98/default.nix {};
+          switch-firmware = pkgs.callPackage ./switch-firmware/default.nix {};
           tidal-dl = pkgs.python3Packages.callPackage ./tidal-dl/default.nix {
             inherit aigpy;
             inherit lyricsgenius;
