@@ -9,13 +9,14 @@ stdenv.mkDerivation rec {
   version = "17.0.0";
 
   src = fetchzip {
-    url = "https://yuzuprodkeys.com/wp-content/uploads/2023/12/YuzuProdkKeys.com-V17.0.0.zip";
-    hash = "sha256-n4S8Z6Gsk6dw7BAaHLxbXAN5BqlRpA8p2dyimMxDSiQ=";
+    url = "https://archive.org/download/prodKeys.co-V17.0.0/prodKeys.co-V17.0.0.zip";
+    hash = "sha256-+C/lludoB0YmSpZj2Yhf7dQvCzlIyVrp5SUj5O7Xcfo=";
   };
 
   installPhase = ''
     mkdir $out
-    cp TheProdkKeys.com-V17.0.0/TheProdkKeys.com-V17.0.0/* $out/
+
+    cp prodKeys.co-V17.0.0/prodKeys.co-V17.0.0/* $out/
   '';
 
   meta = with lib; {
