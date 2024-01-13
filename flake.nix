@@ -19,6 +19,7 @@
           aperture-plymouth = pkgs.callPackage ./aperture-plymouth/default.nix {};
           bulk_extractor = pkgs.callPackage ./bulk_extractor/default.nix {};
           chicago95 = pkgs.callPackage ./chicago95/default.nix {};
+          oxyromon = pkgs.callPackage ./oxyromon/default.nix {};
           chitubox = pkgs.callPackage ./chitubox/default.nix {};
           ha-mqtt-iot = pkgs.callPackage ./ha-mqtt-iot/default.nix {};
           hyperhdr = pkgs.callPackage ./hyperhdr/default.nix {};
