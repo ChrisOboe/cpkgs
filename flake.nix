@@ -23,6 +23,7 @@
           chitubox = pkgs.callPackage ./chitubox/default.nix {};
           ha-mqtt-iot = pkgs.callPackage ./ha-mqtt-iot/default.nix {};
           hyperhdr = pkgs.callPackage ./hyperhdr/default.nix {};
+          jackboxutility = pkgs.callPackage ./jackboxutility/default.nix {};
           libdvbcsa-patched = pkgs.callPackage ./libdvbcsa-patched/default.nix {};
           lycheeslicer = pkgs.callPackage ./lycheeslicer/default.nix {};
           lyricsgenius = pkgs.python3Packages.callPackage ./lyricsgenius/default.nix {};

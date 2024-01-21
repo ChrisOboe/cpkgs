@@ -1,0 +1,45 @@
+{
+  lib,
+  fetchFromGitHub,
+  flutter,
+  gst_all_1,
+  libunwind,
+  orc,
+  pkg-config,
+  pkgs,
+}:
+flutter.buildFlutterApplication rec {
+  pname = "jackboxutility";
+  version = "1.3.6+6";
+
+  gh = fetchFromGitHub {
+    owner = "JackboxUtility";
+    repo = "JackboxUtility";
+    rev = "${version}";
+    sha256 = "sha256-VDABWK54OGCYIM1IlL837GQRkvXaC6hHcZVCXdLbZ+Q=";
+    fetchSubmodules = true;
+  };
+  src = "${gh}/jackbox_patcher";
+
+  pubspecLockFile = "${src}/pubspec.lock";
+  depsListFile = ./deps.json;
+  vendorHash = "sha256-XyQkBc3iR3HpZmofSOnQ7ksL8fDPX2KF5vZBS55QrP4=";
+
+  nativeBuildInputs = [
+    pkg-config
+  ];
+  buildInputs = [
+    gst_all_1.gstreamer
+    gst_all_1.gst-plugins-base
+    libunwind
+    orc
+    pkgs.mimalloc
+  ];
+
+  meta = with lib; {
+    description = "Virtual KVM switch for Linux machines";
+    homepage = "https://github.com/htrefil/rkvm";
+    license = licenses.mit;
+    maintainers = ["chris@oboe.email"];
+  };
+}
