@@ -20,7 +20,6 @@
           bulk_extractor = pkgs.callPackage ./bulk_extractor/default.nix {};
           chicago95 = pkgs.callPackage ./chicago95/default.nix {};
           oxyromon = pkgs.callPackage ./oxyromon/default.nix {};
-
           ha-mqtt-iot = pkgs.callPackage ./ha-mqtt-iot/default.nix {};
           hyperhdr = pkgs.callPackage ./hyperhdr/default.nix {};
           jackboxutility = pkgs.callPackage ./jackboxutility/default.nix {};
@@ -35,7 +34,6 @@
           redmond97 = pkgs.callPackage ./redmond97/default.nix {};
           rkvm = pkgs.callPackage ./rkvm/default.nix {};
           se98 = pkgs.callPackage ./se98/default.nix {};
-
           tidal-dl = pkgs.python3Packages.callPackage ./tidal-dl/default.nix {
             inherit aigpy;
             inherit lyricsgenius;
