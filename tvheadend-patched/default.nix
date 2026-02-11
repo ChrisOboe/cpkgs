@@ -28,7 +28,7 @@
   libtheora,
   zlib,
 }: let
-  version = "4.3.0";
+  version = "4.2.8";
 
   dtv-scan-tables = stdenv.mkDerivation {
     pname = "dtv-scan-tables";
