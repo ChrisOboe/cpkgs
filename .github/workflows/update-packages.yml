@@ -39,7 +39,7 @@ jobs:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Update package
         run: |
-          nix-shell -p nix-update --run "nix-update --flake --version=unstable ${{ matrix.package }}"
+          nix shell nixpkgs#nix-update --command nix-update --flake --version=unstable ${{ matrix.package }}
         continue-on-error: true
       - name: Build updated package
         id: build
