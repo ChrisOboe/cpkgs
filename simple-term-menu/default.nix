@@ -5,13 +5,13 @@
 }:
 buildPythonPackage rec {
   pname = "simple-term-menu";
-  version = "1.6.1";
+  version = "1.6.6";
 
   src = fetchFromGitHub {
     owner = "IngoMeyer441";
     repo = "simple-term-menu";
     rev = "v${version}";
-    sha256 = "sha256-SAC1hNCl2r7ijasCNJ5oaHBYdMG4aCDf828tFAsJ8lc=";
+    sha256 = "sha256-nfMqtyUalt/d/wTyRUlu5x4Q349ARY8hDMi8Ui4cTI4=";
   };
 
   meta = with lib; {
