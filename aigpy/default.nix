@@ -8,11 +8,11 @@
 }:
 buildPythonPackage rec {
   pname = "aigpy";
-  version = "2021.9.10.3";
+  version = "2022.7.8.1";
 
   src = fetchPypi {
     inherit pname version;
-    sha256 = "838aaaf62efb2a48847f07948cce0dc1a209828807545b914065b25c4e50c38d";
+    sha256 = "sha256-1kQced6YdC/wvegqFVhZfej4+4aemGXvKysKjejP13w=";
   };
 
   propagatedBuildInputs = [
