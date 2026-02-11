@@ -17,32 +17,33 @@ jobs:
           - aperture-plymouth
           - bulk_extractor
           - chicago95
-          - chitubox
           - ha-mqtt-iot
           - hyperhdr
+          - ipysheet
           - jackboxutility
+          - kernel_driver
           - libdvbcsa-patched
+          - libdyson
           - lycheeslicer
           - lyricsgenius
-          - libdyson
-          - simple-term-menu
-          - streamrip
-          - steamgrid
+          - nbterm
           - oscam
           - oxyromon
           - redmond97
           - rkvm
           - se98
-          - switch-firmware
-          - switch-keys
+          - simple-term-menu
+          - steamgrid
+          - steamlink
+          - streamrip
           - tidal-dl
           - tvheadend-patched
           - vlmcsd
           - xmount
       fail-fast: false
     steps:
-      - uses: actions/checkout@v3
-      - uses: cachix/install-nix-action@v19
+      - uses: actions/checkout@v4
+      - uses: cachix/install-nix-action@v31
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Install nix-update
@@ -67,7 +68,7 @@ jobs:
           fi
       - name: Create Pull Request
         if: steps.changes.outputs.has_changes == 'true'
-        uses: peter-evans/create-pull-request@v4
+        uses: peter-evans/create-pull-request@v8
         id: pr
         with:
           commit-message: 'Update ${{ matrix.package }} to latest version'
@@ -84,7 +85,7 @@ jobs:
           delete-branch: true
       - name: Enable Pull Request Automerge
         if: steps.pr.outputs.pull-request-operation == 'created' && steps.build.outcome == 'success'
-        uses: peter-evans/enable-pull-request-automerge@v2
+        uses: peter-evans/enable-pull-request-automerge@v3
         with:
           token: ${{ secrets.PAT }}
           pull-request-number: ${{ steps.pr.outputs.pull-request-number }}
