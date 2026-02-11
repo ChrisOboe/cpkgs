@@ -6,29 +6,18 @@ A collection of custom Nix packages maintained as a flake.
 
 This repository contains various packages that are not available in nixpkgs or require custom configurations:
 
-- **aigpy** - Python Common Tool
 - **aperture-plymouth** - Plymouth theme
 - **bulk_extractor** - Bulk data extraction tool
-- **chicago95** - Windows 95 theme
-- **chitubox** - 3D printing slicer
 - **ha-mqtt-iot** - Home Assistant MQTT IoT integration
-- **hyperhdr** - Ambient lighting implementation
 - **jackboxutility** - Jackbox utility tool
 - **libdvbcsa-patched** - Patched DVB-CSA library
-- **lycheeslicer** - 3D printing slicer
-- **lyricsgenius** - Python client for Genius lyrics API
 - **libdyson** - Python library for Dyson devices
-- **simple-term-menu** - Simple terminal menu library
-- **streamrip** - Music downloader
-- **steamgrid** - Steam grid utility
+- **lycheeslicer** - 3D printing slicer
 - **oscam** - Open Source Conditional Access Module
 - **oxyromon** - ROM organizer
 - **redmond97** - Windows 97 theme
-- **rkvm** - Virtual KVM switch
 - **se98** - Temperature sensor tool
-- **switch-firmware** - Nintendo Switch firmware
-- **switch-keys** - Nintendo Switch keys
-- **tidal-dl** - Tidal music downloader
+- **steamgrid** - Steam grid utility
 - **tvheadend-patched** - Patched TV streaming server
 - **vlmcsd** - KMS emulator
 - **xmount** - Mounting tool
@@ -56,8 +45,8 @@ Then use packages from this flake:
 
 ```nix
 environment.systemPackages = [
-  cpkgs.packages.${system}.hyperhdr
-  cpkgs.packages.${system}.streamrip
+  cpkgs.packages.${system}.oxyromon
+  cpkgs.packages.${system}.lycheeslicer
 ];
 ```
 
@@ -72,7 +61,7 @@ nix build github:ChrisOboe/cpkgs#<package-name>
 For example:
 
 ```bash
-nix build github:ChrisOboe/cpkgs#hyperhdr
+nix build github:ChrisOboe/cpkgs#oscam
 ```
 
 ## Automated Updates
