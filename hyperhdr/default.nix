@@ -46,10 +46,6 @@ stdenv.mkDerivation rec {
     # remove some wierd defaults
     sed -i 's/DEFAULT_BONJOUR  *ON/DEFAULT_BONJOUR OFF/g' CMakeLists.txt # needs a dependency that is not packaged
     sed -i 's/NOT ENABLE_BONJOUR/ASDF/g' CMakeLists.txt
-
-    # mime type handling isn't working. don't know why.
-    substituteInPlace sources/webserver/StaticFileServing.cpp \
-      --replace 'reply->addHeader("Content-Type", mime.name().toLocal8Bit());' ""
   '';
 
   cmakeFlags = [
