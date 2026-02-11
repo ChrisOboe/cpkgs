@@ -21,7 +21,6 @@
           ha-mqtt-iot = pkgs.callPackage ./ha-mqtt-iot/default.nix {};
           jackboxutility = pkgs.callPackage ./jackboxutility/default.nix {};
           libdvbcsa-patched = pkgs.callPackage ./libdvbcsa-patched/default.nix {};
-          lycheeslicer = pkgs.callPackage ./lycheeslicer/default.nix {};
           libdyson = pkgs.python311Packages.callPackage ./libdyson/default.nix {};
           steamgrid = pkgs.callPackage ./steamgrid/default.nix {};
           oscam = pkgs.callPackage ./oscam/default.nix {};
