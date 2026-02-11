@@ -20,7 +20,8 @@ stdenv.mkDerivation rec {
     owner = "awawa-dev";
     repo = "HyperHDR";
     rev = "v${version}";
-    sha256 = "sha256-9GfQu+uSMcjLRx9oqzDZzoaATPgXiXqTaLCWPH74/cU=";
+    fetchSubmodules = true;
+    hash = lib.fakeHash;
   };
 
   nativeBuildInputs = [
@@ -59,6 +60,8 @@ stdenv.mkDerivation rec {
     "-DENABLE_SOUNDCAPLINUX=OFF"
     "-DENABLE_SPIDEV=OFF"
     "-DENABLE_V4L2=OFF"
+    "-DENABLE_POWER_MANAGEMENT=OFF"
+    "-DENABLE_PIPEWIRE=OFF"
     "-DUSE_SHARED_MBEDTLS_LIBRARY=ON"
   ];
 
