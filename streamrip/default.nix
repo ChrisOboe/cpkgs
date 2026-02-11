@@ -28,14 +28,14 @@
 }:
 buildPythonPackage rec {
   pname = "streamrip";
-  version = "2.0.5";
+  version = "2.1.0";
   format = "pyproject";
 
   src = fetchFromGitHub {
     owner = "nathom";
     repo = "streamrip";
     rev = "v${version}";
-    sha256 = "sha256-KwMt89lOPGt6nX7ywliG/iAJ1WnG0CRPwhAVlPR85q0=";
+    sha256 = "sha256-Klrkz0U36EIGO2sNxTnKPACvvqu1sslLFFrQRjFdxiE=";
   };
 
   patchPhase = ''
