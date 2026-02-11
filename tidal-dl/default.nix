@@ -11,11 +11,11 @@
 }:
 buildPythonPackage rec {
   pname = "tidal-dl";
-  version = "2021.9.10.1";
+  version = "2022.10.31.1";
 
   src = fetchPypi {
     inherit pname version;
-    sha256 = "8982df2277daf377a5932663c68cf0c2d667ac51ed12dc0b15553991e7dc79fc";
+    sha256 = "sha256-b2AAsiI3n2/v6HC37fMI/d8UcxZxsWM+fnWvdajHrOg=";
   };
 
   # # Package conditions to handle
