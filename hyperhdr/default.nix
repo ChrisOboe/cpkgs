@@ -21,7 +21,7 @@ stdenv.mkDerivation rec {
     repo = "HyperHDR";
     rev = "v${version}";
     fetchSubmodules = true;
-    hash = lib.fakeHash;
+    hash = "sha256-2Y2QRv3xSQU2g2J8FFHGPeZmalKEbEwXbdv5d+f+904=";
   };
 
   nativeBuildInputs = [
