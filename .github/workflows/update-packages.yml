@@ -5,41 +5,30 @@ on:
     - cron: '0 2 * * 0' # weekly on Sunday at 2 AM
 
 jobs:
+  generate-matrix:
+    runs-on: ubuntu-latest
+    outputs:
+      packages: ${{ steps.get-packages.outputs.packages }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cachix/install-nix-action@v31
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Get package list from flake
+        id: get-packages
+        run: |
+          packages=$(nix eval --json .#packages.x86_64-linux --apply builtins.attrNames | jq -c .)
+          echo "packages=$packages" >> $GITHUB_OUTPUT
+
   update:
+    needs: generate-matrix
     runs-on: ubuntu-latest
     permissions:
       contents: write
       pull-requests: write
     strategy:
       matrix:
-        package:
-          - aigpy
-          - aperture-plymouth
-          - bulk_extractor
-          - chicago95
-          - ha-mqtt-iot
-          - hyperhdr
-          - ipysheet
-          - jackboxutility
-          - kernel_driver
-          - libdvbcsa-patched
-          - libdyson
-          - lycheeslicer
-          - lyricsgenius
-          - nbterm
-          - oscam
-          - oxyromon
-          - redmond97
-          - rkvm
-          - se98
-          - simple-term-menu
-          - steamgrid
-          - steamlink
-          - streamrip
-          - tidal-dl
-          - tvheadend-patched
-          - vlmcsd
-          - xmount
+        package: ${{ fromJson(needs.generate-matrix.outputs.packages) }}
       fail-fast: false
     steps:
       - uses: actions/checkout@v4
@@ -48,10 +37,10 @@ jobs:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Install nix-update
         run: |
-          nix profile install nixpkgs#nix-update
+          nix-shell -p nix-update --run "echo nix-update installed"
       - name: Update package
         run: |
-          nix-update --flake --version=unstable ${{ matrix.package }}
+          nix-shell -p nix-update --run "nix-update --flake --version=unstable ${{ matrix.package }}"
         continue-on-error: true
       - name: Build updated package
         id: build
