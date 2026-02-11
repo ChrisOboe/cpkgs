@@ -6,13 +6,13 @@
 }:
 stdenv.mkDerivation rec {
   pname = "chicago95";
-  version = "2.0.1";
+  version = "3.0.1";
 
   src = fetchFromGitHub {
     owner = "grassmunk";
     repo = "Chicago95";
     rev = "v${version}";
-    sha256 = "sha256-1fiefsj+WeLBL/1cTkLJf9Ab4zsLEFi1PXT5CCAmlO4=";
+    sha256 = "sha256-EHcDIct2VeTsjbQWnKB2kwSFNb97dxuydAu+i/VquBA=";
   };
 
   nativeBuildInputs = [pkgs.which];
