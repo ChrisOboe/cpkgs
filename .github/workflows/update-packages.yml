@@ -35,9 +35,6 @@ jobs:
       - uses: cachix/install-nix-action@v31
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Install nix-update
-        run: |
-          nix-shell -p nix-update --run "echo nix-update installed"
       - name: Update package
         run: |
           nix-shell -p nix-update --run "nix-update --flake --version=unstable ${{ matrix.package }}"
