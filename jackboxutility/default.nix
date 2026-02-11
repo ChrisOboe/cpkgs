@@ -14,7 +14,7 @@
 }:
 stdenv.mkDerivation rec {
   pname = "jackboxutility";
-  version = "1.3.6+6";
+  version = "1.5.1";
 
   src = fetchzip {
     url = "https://github.com/JackboxUtility/JackboxUtility/releases/download/1.3.6%2B6/JackboxUtility_Linux.zip";
