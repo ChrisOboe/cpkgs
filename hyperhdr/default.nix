@@ -43,7 +43,7 @@ stdenv.mkDerivation rec {
 
   # hyperion calls FlatBuffers Flatbuffers (lowercased b), cmake then can't find it
   postPatch = ''
-    # remove some wierd defaults
+    # remove some weird defaults
     sed -i 's/DEFAULT_BONJOUR  *ON/DEFAULT_BONJOUR OFF/g' CMakeLists.txt # needs a dependency that is not packaged
     sed -i 's/NOT ENABLE_BONJOUR/ASDF/g' CMakeLists.txt
   '';
