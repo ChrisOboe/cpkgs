@@ -14,13 +14,13 @@
 }:
 stdenv.mkDerivation rec {
   pname = "hyperhdr";
-  version = "19.0.0.0";
+  version = "22.0.0.0beta1";
 
   src = fetchFromGitHub {
     owner = "awawa-dev";
     repo = "HyperHDR";
     rev = "v${version}";
-    sha256 = "sha256-EzI5S89Npq12bempfuEXjrMQ6QmCVqU43xtf4sL9zLE=";
+    sha256 = "sha256-9GfQu+uSMcjLRx9oqzDZzoaATPgXiXqTaLCWPH74/cU=";
   };
 
   nativeBuildInputs = [
