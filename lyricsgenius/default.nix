@@ -7,11 +7,11 @@
 }:
 buildPythonPackage rec {
   pname = "lyricsgenius";
-  version = "3.0.1";
+  version = "3.7.5";
 
   src = fetchPypi {
     inherit pname version;
-    sha256 = "83aef55ffca0b8ea69651c4b144693d1c012687a7da57f88d095b333f2e18928";
+    sha256 = "sha256-xPEMFPeYBFXGXIfQz9EIa+CWba7K+ZaTAy02tlo4qhY=";
   };
 
   # # Package conditions to handle
