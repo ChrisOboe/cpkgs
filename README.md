@@ -12,7 +12,6 @@ This repository contains various packages that are not available in nixpkgs or r
 - **jackboxutility** - Jackbox utility tool
 - **libdvbcsa-patched** - Patched DVB-CSA library
 - **libdyson** - Python library for Dyson devices
-- **lycheeslicer** - 3D printing slicer
 - **oscam** - Open Source Conditional Access Module
 - **oxyromon** - ROM organizer
 - **redmond97** - Windows 97 theme
@@ -46,7 +45,6 @@ Then use packages from this flake:
 ```nix
 environment.systemPackages = [
   cpkgs.packages.${system}.oxyromon
-  cpkgs.packages.${system}.lycheeslicer
 ];
 ```
 
