@@ -4,32 +4,75 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    flake-utils,
-    ...
-  }:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      flake-utils,
+      ...
+    }:
     flake-utils.lib.eachDefaultSystem (
-      system: let
+      system:
+      let
         pkgs = nixpkgs.legacyPackages.${system};
-      in {
-        packages = rec {
-          aperture-plymouth = pkgs.callPackage ./aperture-plymouth/default.nix {};
-          bulk_extractor = pkgs.callPackage ./bulk_extractor/default.nix {};
-          oxyromon = pkgs.callPackage ./oxyromon/default.nix {};
-          ha-mqtt-iot = pkgs.callPackage ./ha-mqtt-iot/default.nix {};
-          jackboxutility = pkgs.callPackage ./jackboxutility/default.nix {};
-          libdvbcsa-patched = pkgs.callPackage ./libdvbcsa-patched/default.nix {};
-          libdyson = pkgs.python311Packages.callPackage ./libdyson/default.nix {};
-          steamgrid = pkgs.callPackage ./steamgrid/default.nix {};
-          oscam = pkgs.callPackage ./oscam/default.nix {};
-          redmond97 = pkgs.callPackage ./redmond97/default.nix {};
-          se98 = pkgs.callPackage ./se98/default.nix {};
-          tvheadend-patched = pkgs.callPackage ./tvheadend-patched/default.nix {inherit libdvbcsa-patched;};
-          vlmcsd = pkgs.callPackage ./vlmcsd/default.nix {};
-          xmount = pkgs.callPackage ./xmount/default.nix {};
-        };
+
+        # Automatisch alle Verzeichnisse mit default.nix finden
+        packageDirs = builtins.filter (name: builtins.pathExists (./pkgs + "/${name}/default.nix")) (
+          builtins.attrNames (builtins.readDir ./pkgs)
+        );
+
+        # Python Packages finden
+        pythonPackageDirs =
+          if builtins.pathExists ./pkgs.python3Packages then
+            builtins.filter (name: builtins.pathExists (./pkgs.python3Packages + "/${name}/default.nix")) (
+              builtins.attrNames (builtins.readDir ./pkgs.python3Packages)
+            )
+          else
+            [ ];
+
+        # Standard Packages automatisch erstellen
+        autoPackages = builtins.listToAttrs (
+          map (name: {
+            name = name;
+            value = pkgs.callPackage (./pkgs + "/${name}") { };
+          }) packageDirs
+        );
+
+        # Python Packages automatisch erstellen
+        pythonPackages = builtins.listToAttrs (
+          map (name: {
+            name = name;
+            value = pkgs.python311Packages.callPackage (./pkgs.python3Packages + "/${name}") { };
+          }) pythonPackageDirs
+        );
+
+        # Packages mit Overrides (liest overrides.nix falls vorhanden)
+        overriddenPackages = builtins.listToAttrs (
+          builtins.filter (x: x != null) (
+            map (
+              name:
+              let
+                overridePath = ./pkgs + "/${name}/overrides.nix";
+              in
+              if builtins.pathExists overridePath then
+                {
+                  name = name;
+                  value =
+                    let
+                      overrides = import overridePath;
+                      extraArgs = if overrides ? extraArgs then overrides.extraArgs autoPackages else { };
+                    in
+                    pkgs.callPackage (./pkgs + "/${name}") extraArgs;
+                }
+              else
+                null
+            ) packageDirs
+          )
+        );
+      in
+      rec {
+        packages = autoPackages // pythonPackages // overriddenPackages;
+        checks = packages;
       }
     );
 }
