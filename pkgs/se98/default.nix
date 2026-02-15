@@ -6,13 +6,13 @@
 }:
 stdenv.mkDerivation rec {
   pname = "se98";
-  version = "0.2.13";
+  version = "0.2.16";
 
   src = fetchFromGitHub {
     owner = "nestoris";
     repo = "Win98SE";
     rev = "v${version}";
-    sha256 = "sha256-Nm1qEnqQiAXLq8BPPtm1kfMZm/2W/7k++ST7auZgWMk=";
+    sha256 = "sha256-8vaSb2W9/ievnbiCq6vu7YqDMbxgwrNJWB/JiTL31FQ=";
   };
 
   #nativeBuildInputs = [ pkgs.which ];
