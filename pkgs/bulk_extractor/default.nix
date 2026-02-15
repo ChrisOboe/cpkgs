@@ -10,14 +10,14 @@
 }:
 stdenv.mkDerivation rec {
   pname = "bulk_extractor";
-  version = "1.6.0";
+  version = "2.1.1";
 
   src = fetchFromGitHub {
     owner = "simsong";
     repo = "bulk_extractor";
     rev = "v${version}";
     fetchSubmodules = true;
-    sha256 = "sha256-w09dEBoZ4nEdKgeDbEdwB2tBeblplxKWyHbKGcFsTtk=";
+    sha256 = "sha256-Jj/amXESFBu/ZaiIRlDKmtWTBVQ2TEvOM2jBYP3y1L8=";
   };
 
   nativeBuildInputs = [
