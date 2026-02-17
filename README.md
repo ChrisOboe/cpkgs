@@ -10,6 +10,7 @@ This repository contains various packages that are not available in nixpkgs or r
 - **bulk_extractor** - Bulk data extraction tool
 - **ha-mqtt-iot** - Home Assistant MQTT IoT integration
 - **jackboxutility** - Jackbox utility tool
+- **kodi-addon-ardundzdf** - Kodi addon for ARD and ZDF German media libraries
 - **libdvbcsa-patched** - Patched DVB-CSA library
 - **libdyson** - Python library for Dyson devices
 - **oscam** - Open Source Conditional Access Module
